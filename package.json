@@ -1,0 +1,15 @@
+{
+  "name": "tryscss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "style": "sass -w ./main.scss ./style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.90.0"
+  }
+}

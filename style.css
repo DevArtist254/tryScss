@@ -1,0 +1,121 @@
+body {
+  margin: 4rem;
+  /*Nesting can assist auto complete font-size: 1.25rem;*/
+  font-size: 1.25rem;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+
+section {
+  padding-block: 3rem;
+}
+
+.container {
+  width: min(100% - 4rem, 50rem);
+  margin-inline: auto;
+}
+
+.text-subdued {
+  font-size: 1rem;
+}
+
+.surface-primary {
+  background-color: hsl(206, 33%, 37%);
+}
+.surface-primary .text-subdued {
+  opacity: 0.8;
+}
+.surface-secondary {
+  background-color: hsl(253, 27%, 35%);
+}
+.surface-secondary .text-subdued {
+  opacity: 0.7;
+}
+.surface-primary, .surface-secondary {
+  color: white;
+}
+.surface-accent {
+  background-color: hsl(45, 82%, 65%);
+  color: black;
+}
+.surface-accent .text-subdued {
+  opacity: 0.6;
+}
+.surface-primary .btn, .surface-secondary .btn, .surface-accent .btn {
+  background-color: white;
+  color: black;
+}
+.surface-primary .btn:hover, .surface-primary .btn:focus, .surface-secondary .btn:hover, .surface-secondary .btn:focus, .surface-accent .btn:hover, .surface-accent .btn:focus {
+  background-color: inherit;
+  color: inherit;
+  outline: currentColor 2px solid;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1em 2em;
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+.btn__primary {
+  background-color: hsl(206, 33%, 37%);
+}
+.btn__primary:hover, .btn__primary:focus {
+  background-color: hsl(206, 33%, 25%);
+}
+.btn__secondary {
+  background-color: hsl(253, 27%, 35%);
+}
+.btn__secondary:hover, .btn__secondary:focus {
+  background-color: hsl(253, 27%, 20%);
+}
+.btn__accent {
+  background-color: hsl(45, 82%, 65%);
+}
+.btn__accent:hover, .btn__accent:focus {
+  background-color: hsl(45, 82%, 45%);
+}
+
+/*
+   Nesting simply means putting a new selector within parents declaration
+
+   & is very useful when nesting - #parentSelector
+
+   //Application
+   1. Nesting properties
+   2. Nesting can create overly specific selectors with high specificity.  if you wouldn't write a selector like that in your CSS, then don't use nesting to create that when writing SCSS.
+   3. You can use & parent selector before or after the selector - .text-centered & {}
+
+
+   NB line-height 1.5 / max-width 45 ch
+*/
+/*
+Application 
+    1. Variables define by variables
+    2. Are blocked scoped but one can you the !global
+    3. Great for the following
+        - Color values
+        - Font sizes
+        - Spacing values
+        - Box shadows
+        - Gradients
+        - Border radii
+*/
+.body {
+  color: #efefef;
+  background: #333;
+}
+
+.header-nav-link {
+  color: blue;
+}
+
+/*
+Custom css props are live variables that can be seen by the browser
+Sass variables can be seen by the browser
+*/
+
+/*# sourceMappingURL=style.css.map */

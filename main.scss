@@ -1,0 +1,172 @@
+$clr-primary-400: hsl(206, 33%, 37%);
+$clr-primary-500: hsl(206, 33%, 25%);
+$clr-secondary-400: hsl(253, 27%, 35%);
+$clr-secondary-500: hsl(253, 27%, 20%);
+$clr-accent-400: hsl(45, 82%,  65%);
+$clr-accent-500: hsl(45, 82%, 45%);
+
+body {
+    margin: 4rem;
+
+    /*Nesting can assist auto complete font-size: 1.25rem;*/
+    font: {
+        size: 1.25rem;
+        family: system-ui, sans-serif;
+    }
+    text-align: center;
+}
+
+section {
+    padding-block: 3rem;
+}
+
+.container {
+    width: min(100% - 4rem, 50rem);
+    margin-inline: auto;
+}
+
+.text-subdued {
+    font-size: 1rem;
+}
+
+.surface {
+    &-primary {
+        background-color: $clr-primary-400;
+
+        .text-subdued {
+            opacity: 0.8;
+        }
+    }
+
+    &-secondary {
+        background-color: $clr-secondary-400;
+
+        .text-subdued {
+            opacity: 0.7;
+        }
+    }
+
+    &-primary,
+    &-secondary {
+        color: white;
+    }
+
+    &-accent {
+        background-color: $clr-accent-400;
+        color: black;
+
+        .text-subdued {
+            opacity: 0.6;
+        }
+    }
+
+    &-primary,
+    &-secondary,
+    &-accent {
+        .btn {
+            background-color: white;
+            color: black;
+
+            &:hover,
+            &:focus {
+                background-color: inherit;
+                color: inherit;
+                outline: currentColor 2px solid;
+            }
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 1em 2em;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+
+    &__primary {
+        background-color: $clr-primary-400;
+
+        &:hover,
+        &:focus {
+            background-color: $clr-primary-500;
+        }
+    }
+
+    &__secondary {
+        background-color: $clr-secondary-400;
+
+        &:hover,
+        &:focus {
+            background-color: $clr-secondary-500;
+        }
+    }
+
+    &__accent {
+        background-color: $clr-accent-400;
+
+        &:hover,
+        &:focus {
+            background-color: $clr-accent-500;
+        }
+    }
+}
+
+/*
+   Nesting simply means putting a new selector within parents declaration
+
+   & is very useful when nesting - #parentSelector
+
+   //Application
+   1. Nesting properties
+   2. Nesting can create overly specific selectors with high specificity.  if you wouldn't write a selector like that in your CSS, then don't use nesting to create that when writing SCSS.
+   3. You can use & parent selector before or after the selector - .text-centered & {}
+
+
+   NB line-height 1.5 / max-width 45 ch
+*/
+
+
+// Variables
+
+// A variable looks just like a regular property: value pair, with the exception that they don't have to be declared inside of a CSS rule.
+
+/*
+Application 
+    1. Variables define by variables
+    2. Are blocked scoped but one can you the !global
+    3. Great for the following
+        - Color values
+        - Font sizes
+        - Spacing values
+        - Box shadows
+        - Gradients
+        - Border radii
+*/
+
+// 1.
+$clr-dark-gray: #333;
+$clr-light-gray: #efefef;
+
+$clr-primary-bg: $clr-dark-gray;
+$clr-primary-text: $clr-light-gray;
+
+.body {
+    color: $clr-primary-text;
+    background: $clr-primary-bg;
+}
+
+.header {
+    $clr-primary: blue;
+
+    &-nav-link {
+        color: $clr-primary;
+    }
+}
+
+/*
+Custom css props are live variables that can be seen by the browser
+Sass variables can be seen by the browser
+*/
