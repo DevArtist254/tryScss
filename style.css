@@ -117,5 +117,88 @@ Application
 Custom css props are live variables that can be seen by the browser
 Sass variables can be seen by the browser
 */
+/* Extends */
+.bg-dark, .inverted-colors {
+  background: black;
+  padding: 1rem;
+}
+
+.inverted-colors {
+  color: white;
+}
+
+/* Is only complied if called*/
+.at {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/*Better way of creating */
+.tooltip-alert, .tooltip-warning {
+  padding: 0.25em;
+  background: #ededed;
+  color: #323232;
+}
+
+.tooltip-warning {
+  border: 2px solid orange;
+}
+.tooltip-alert {
+  border: 2px solid red;
+}
+
+.acct {
+  color: limegreen;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.call-to-action {
+  color: white;
+  background: black;
+}
+.call-to-action a {
+  color: yellow;
+}
+.call-to-action__title {
+  font-size: 2.5rem;
+  color: #f07178;
+}
+
+.btn--accent {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hero {
+  background-image: linear-gradient(-45deg, red, violet);
+}
+
+.red {
+  color: red;
+  background-color: black;
+}
+
+.box-red-100 {
+  background-color: red;
+  width: 100px;
+  aspect-ratio: 1/1;
+}
+
+.box-black-150 {
+  background-color: black;
+  width: 150px;
+  aspect-ratio: 1/1;
+}
+
+.box-blue-200 {
+  background-color: blue;
+  width: 200px;
+  aspect-ratio: 1/1;
+}
 
 /*# sourceMappingURL=style.css.map */

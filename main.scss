@@ -170,3 +170,159 @@ $clr-primary-text: $clr-light-gray;
 Custom css props are live variables that can be seen by the browser
 Sass variables can be seen by the browser
 */
+
+/* Extends */
+.bg-dark {
+    background: black;
+    padding: 1rem;
+}
+
+.inverted-colors {
+    @extend .bg-dark;
+    color: white;
+}
+
+/* Is only complied if called*/
+
+%uppercase-bold-text {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.at {
+    @extend %uppercase-bold-text;
+}
+
+/*Better way of creating */
+
+$clr-neutral-light: #ededed;
+$clr-neutral-dark: #323232;
+$clr-warning: orange;
+$clr-alert: red;
+
+%tooltip {
+    padding: 0.25em;
+    background: $clr-neutral-light;
+    color: $clr-neutral-dark;
+}
+
+.tooltip {
+    &-warning {
+        @extend %tooltip;
+        border: 2px solid $clr-warning;
+    }
+
+    &-alert {
+        @extend %tooltip;
+        border: 2px solid $clr-alert;
+    }
+}
+
+@mixin uppercase-bold-text {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.acct {
+    color: limegreen;
+    @include uppercase-bold-text();
+}
+
+@mixin invertedColors {
+    color: white;
+    background: black;
+
+    a {
+        color: yellow;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        color: #f07178;
+    }
+}
+
+.call-to-action {
+    @include invertedColors();
+}
+
+@mixin button($bg) {
+    background-color: $bg;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.btn--accent {
+    @include button($bg: #fff);
+}
+
+@mixin linear-gradient($deg: -45deg, $clr-1: red, $clr-2: violet) {
+    background-image: linear-gradient($deg, $clr-1, $clr-2);
+}
+
+.hero {
+    @include linear-gradient();
+}
+
+$color-pri: red;
+$color-sec: black;
+$color-tri: blue;
+$bg: background-color;
+
+@mixin aspect-ratio {
+    aspect-ratio: 1 / 1;
+}
+
+.#{"" + $color-pri} {
+    color: $color-pri;
+    #{$bg}: $color-sec;
+}
+
+// $width: 100;
+
+// .width-#{$width * 2} {
+//     width: $width * 2px;
+// }
+
+// .box-#{"" + $color-pri}-#{$width} {
+//     #{$bg}: $color-pri;
+//     width: #{$width}px;
+//     @include aspect-ratio;
+// }
+
+// .box-#{"" + $color-sec}-#{$width + 50} {
+//     #{$bg}: $color-sec;
+//     width: #{$width + 50}px;
+//     @include aspect-ratio;
+// }
+
+// .box-#{"" + $color-tri}-#{$width + 100} {
+//     #{$bg}: $color-tri;
+//     width: #{$width + 100}px;
+//     @include aspect-ratio;
+// }
+
+@mixin box($clr, $multiplier: 1) {
+    $width: 100;
+
+    &-#{"" + $clr}-#{$width * $multiplier} {
+        background-color: $clr;
+        width: #{$width * $multiplier}px;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+.box {
+    @include box($color-pri, 1);
+}
+
+.box {
+    @include box($color-sec, 1.5);
+}
+
+.box {
+    @include box($color-tri, 2)
+}
