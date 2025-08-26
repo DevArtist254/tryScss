@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $clr-primary-400: hsl(206, 33%, 37%);
 $clr-primary-500: hsl(206, 33%, 25%);
 $clr-secondary-400: hsl(253, 27%, 35%);
@@ -325,4 +327,83 @@ $bg: background-color;
 
 .box {
     @include box($color-tri, 2)
+}
+
+
+
+$clr-accent: #23ef91;
+$clr-neutral-100: #e7e7de;
+
+.bg-accent {
+    background-color: $clr-accent;
+}
+
+.bg-accent-light {
+    background-color: color.scale($clr-accent, $lightness: 70%);
+}
+
+.bg-accent-dark {
+    background-color: color.scale($clr-accent, $lightness: -50%);
+}
+
+.title {
+    $clr-primary: #223345;
+    color: $clr-primary;
+    border: 3px solid;
+    border-color: color.complement($clr-primary);
+}
+
+$clr-one: #ff1100;
+$clr-two: #0011ff;
+
+.new-color {
+    // use a built-in function to mix the two colors into a new color 
+    color: color.mix($clr-one, $clr-two);
+}
+
+// Starting var, Starting no, Ending number
+// to is zero based  will go up to, but not include that final number.
+// through is indexed based - will go up to, and include that number
+@for $i from 1 to 4 {
+    .example {
+        width: $i;
+    }
+}
+
+$total-columns: 12;
+
+@for $column-count from 1 through $total-columns {
+    .col-#{"" + $column-count} {
+        flex-basis: calc(100% / $total-columns) * $column-count;
+    }
+}
+
+$clr-primary: #2553db;
+$clr-steps: 10;
+
+@for $step from 0 through $clr-steps {
+    .clr-primary-#{"" + $step} {
+        color: color.scale($clr-primary, $lightness: $step * 10%);
+    }
+}
+
+// Perfect for lists
+// And we can store them
+$clrs: red, blue, green;
+
+@each $color in $clrs {
+    .#{"" + $color} {
+        color: $color;
+    }
+}
+
+$font-colors: 
+    (primary, #ff0000),
+    (secondary, #00ff00),
+    (tertiary, #0000ff);
+
+@each $name, $clr in $font-colors {
+    .#{$name} {
+        color: $clr;
+    }
 }

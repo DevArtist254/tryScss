@@ -201,4 +201,154 @@ Sass variables can be seen by the browser
   aspect-ratio: 1/1;
 }
 
+.bg-accent {
+  background-color: #23ef91;
+}
+
+.bg-accent-light {
+  background-color: rgb(189, 250.2, 222);
+}
+
+.bg-accent-dark {
+  background-color: rgb(9.2881355932, 127.7118644068, 73.1440677966);
+}
+
+.title {
+  color: #223345;
+  border: 3px solid;
+  border-color: #453422;
+}
+
+.new-color {
+  color: rgb(127.5, 17, 127.5);
+}
+
+.example {
+  width: 1;
+}
+
+.example {
+  width: 2;
+}
+
+.example {
+  width: 3;
+}
+
+.col-1 {
+  flex-basis: 8.3333333333%;
+}
+
+.col-2 {
+  flex-basis: 16.6666666667%;
+}
+
+.col-3 {
+  flex-basis: 25%;
+}
+
+.col-4 {
+  flex-basis: 33.3333333333%;
+}
+
+.col-5 {
+  flex-basis: 41.6666666667%;
+}
+
+.col-6 {
+  flex-basis: 50%;
+}
+
+.col-7 {
+  flex-basis: 58.3333333333%;
+}
+
+.col-8 {
+  flex-basis: 66.6666666667%;
+}
+
+.col-9 {
+  flex-basis: 75%;
+}
+
+.col-10 {
+  flex-basis: 83.3333333333%;
+}
+
+.col-11 {
+  flex-basis: 91.6666666667%;
+}
+
+.col-12 {
+  flex-basis: 100%;
+}
+
+.clr-primary-0 {
+  color: #2553db;
+}
+
+.clr-primary-1 {
+  color: rgb(58.8, 100.2, 222.6);
+}
+
+.clr-primary-2 {
+  color: rgb(80.6, 117.4, 226.2);
+}
+
+.clr-primary-3 {
+  color: rgb(102.4, 134.6, 229.8);
+}
+
+.clr-primary-4 {
+  color: rgb(124.2, 151.8, 233.4);
+}
+
+.clr-primary-5 {
+  color: #92a9ed;
+}
+
+.clr-primary-6 {
+  color: rgb(167.8, 186.2, 240.6);
+}
+
+.clr-primary-7 {
+  color: rgb(189.6, 203.4, 244.2);
+}
+
+.clr-primary-8 {
+  color: rgb(211.4, 220.6, 247.8);
+}
+
+.clr-primary-9 {
+  color: rgb(233.2, 237.8, 251.4);
+}
+
+.clr-primary-10 {
+  color: white;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.green {
+  color: green;
+}
+
+.primary {
+  color: #ff0000;
+}
+
+.secondary {
+  color: #00ff00;
+}
+
+.tertiary {
+  color: #0000ff;
+}
+
 /*# sourceMappingURL=style.css.map */
