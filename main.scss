@@ -1,10 +1,11 @@
 @use "sass:color";
+@use "sass:map";
 
 $clr-primary-400: hsl(206, 33%, 37%);
 $clr-primary-500: hsl(206, 33%, 25%);
 $clr-secondary-400: hsl(253, 27%, 35%);
 $clr-secondary-500: hsl(253, 27%, 20%);
-$clr-accent-400: hsl(45, 82%,  65%);
+$clr-accent-400: hsl(45, 82%, 65%);
 $clr-accent-500: hsl(45, 82%, 45%);
 
 body {
@@ -15,6 +16,7 @@ body {
         size: 1.25rem;
         family: system-ui, sans-serif;
     }
+
     text-align: center;
 }
 
@@ -397,13 +399,300 @@ $clrs: red, blue, green;
     }
 }
 
-$font-colors: 
-    (primary, #ff0000),
+$font-colors: (
+    primary,
+    #ff0000),
     (secondary, #00ff00),
-    (tertiary, #0000ff);
+    (tertiary, #0000ff
+);
 
 @each $name, $clr in $font-colors {
     .#{$name} {
         color: $clr;
     }
+}
+
+// EXpression that produce truthy values to be combined
+@if (1==1) {
+    body {
+        background: blue;
+    }
+}
+
+@if (1==2) {
+    body {
+        background: red;
+    }
+}
+
+@if (1 > 2 and 1==2 or 2 < 3) {
+    //Expression that evaluate value
+}
+
+// $colors: 
+//     (primary, #4287f5),
+//     (secondary, #3a128a),
+//     (accent, #f59c42
+// );
+
+// @each $name, $color in $colors {
+    
+//         .clr-#{$name} {
+//             background: $color;
+            
+//             @if(color.lightness($color) < 50%) {
+//                 color: white;
+//             }
+
+//             @if(color.lightness($color) > 50%) {
+//                 color: black;
+//             }
+//         }
+// }
+
+@mixin border($side: 'all', $color: #dedede, $width: 1px, $style: solid) {
+    @if ($side == 'all') {
+        border: $color $width $style;
+    } @else {
+        border-#{$side}: $color $width $style;
+    }
+}
+
+.tag {
+    @include border(left);
+}
+
+.call-to-action {
+    @include border(right, $width: 5px)
+}
+
+@mixin uppercase($font-size: 1rem) {
+    text-transform: uppercase;
+
+    @if ($font-size < 2rem) {
+        line-height: 1.3;
+    } @else if ($font-size >= 2rem and $font-size < 3rem) {
+        line-height: 1.2;
+    } @else {
+        line-height: 1.1;
+    }
+}
+
+h1 {
+    @include uppercase(6rem)
+}
+
+h2 {
+    @include uppercase(4rem)
+}
+
+h3 {
+    @include uppercase(2.5rem)
+}
+
+$colors: (
+    primary,
+    #4287f5),
+    (secondary, #3a128a),
+    (accent, #f59c42
+);
+
+@each $name, $color in $colors {
+    .clr-#{$name} {
+        background-color: $color;
+        color: if(color.lightness($color) < 50, white, black);
+    }
+}
+
+// @mixin ui-component($size, $color, $bg, $hover-color: $color, $hover-bg: $bg) {
+//     display: inline-block;
+//     padding: $size ($size * 3);
+//     color: $color;
+//     background-color: $bg;
+
+//     &:hover,
+//     &:focus {
+//         color: $hover-color;
+//         background-color: $hover-bg;
+//     }
+// }
+
+@mixin ui-component($size, $color, $bg, $hover: true, $hover-color: $color, $hover-bg: $bg) {
+    display: inline-block;
+    padding: $size ($size * 3);
+    color: $color;
+    background-color: $bg;
+    @if $hover {
+        &:hover,
+        &:focus {
+            color: $hover-color;
+            background-color: $hover-color;
+        }
+    }
+}
+
+.button {
+    @include ui-component(1em, white, black, black, black, white)
+}
+
+.badge {
+    @include ui-component(0.25em, red, blue, $hover: false)
+}
+
+
+@function add($numbers...) {
+    $total: 0;
+
+    @each $number in $numbers {
+        $total: $total + $number
+    }
+
+    @return $total
+}
+
+body {
+    width: add(100, 1000px, 200, 900);
+}
+
+@mixin linear-gradient ($cl-1, $cl-2, $deg: -45deg) {
+    background-image: linear-gradient($deg, $cl-1, $cl-2);
+}
+
+$clr-neutral-900: #000;
+$clr-neutral-800: #222;
+$clr-neutral-700: #343434;
+$clr-neutral-300: #cdcdcd;
+$clr-neutral-200: #ededed;
+$clr-neutral-100: #fff;
+
+$cl-primary: dodgerblue;
+$cl-secondary: steelblue;
+$cl-accent: firebrick;
+
+$default-scheme: $clr-neutral-200, $clr-neutral-700;
+
+@mixin color-scheme($bg, $text) {
+    background-color: $bg;
+    color: $text;
+}
+
+body {
+    @include color-scheme($default-scheme...);
+}
+
+$bp-small: 35em;
+$bp-medium: 55em;
+$bp-large: 70em;
+
+@mixin mq($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+body {
+    font-size: 1rem;
+
+    @include mq($bp-medium) {
+        font-size: 1rem;
+    }
+}
+
+// "sass:map"
+
+// $my-map-name: (
+//     "key-1": value,
+//     "key-2": value-1,
+//     "key-3": value-3
+// )
+
+
+$colors: (
+    primary: (
+        light: lightblue,
+        normal: blue,
+        dark: darkblue
+    ),
+    secondary: (
+        light: pink,
+        normal: red,
+        dark: firebrick
+    )
+);
+
+// $sc: primary, dark;
+
+// @function clr($color) {
+//     @return map.get($colors, $color);
+// }
+
+// body {
+//     color: clr($sc);
+// }
+
+
+// A simple list
+$shadow: 0 0 1rem rgb(black, 0.2);
+
+// Nested list
+$shadows: 
+    (0 0 1rem rgb(black, 0.2)),
+    (0 0 1.5rem rgb(black, 0.15)),
+    (0 0 2rem rgb(black, 0.1));
+
+// $my-map-name: (
+//     "key-1": value,
+//     "key-2": value-2,
+//     "key-3": value-3
+// )
+
+$font-sizes: (
+    400: 1.125rem,
+    500: 1.25rem,
+    600: 1.5rem,
+    700: 2rem
+);
+
+body {
+    font-style: map.get($font-sizes, 400);
+}
+
+$breakpoint: (
+    small: 30em,
+    medium: 45em,
+    large: 65em,
+    xl: 80em
+);
+
+$colors: (
+    'primary': #1b6db5,
+    'secondary': #4a1ab0,
+    'accent': #d97614,
+);
+
+@function clr($color) {
+    @if (map.get($colors, $color) != $color) {
+        @return map.get($colors, $color);
+    }
+}
+
+.example {
+    color: clr(primary);
+}
+
+$crs: (
+    primary: (
+        light: lightblue,
+        normal: blue,
+        dark: darkblue
+    ),
+    secondary: (
+        light: pink,
+        normal: red,
+        dark: firebrick
+    )
+);
+
+.example {
+    color: map.get($crs, primary, dark);
 }

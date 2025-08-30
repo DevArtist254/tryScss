@@ -351,4 +351,94 @@ Sass variables can be seen by the browser
   color: #0000ff;
 }
 
+body {
+  background: blue;
+}
+
+.tag {
+  border-left: #dedede 1px solid;
+}
+
+.call-to-action {
+  border-right: #dedede 5px solid;
+}
+
+h1 {
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+h2 {
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+h3 {
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.clr-primary {
+  background-color: #4287f5;
+  color: black;
+}
+
+.clr-secondary {
+  background-color: #3a128a;
+  color: white;
+}
+
+.clr-accent {
+  background-color: #f59c42;
+  color: black;
+}
+
+.button {
+  display: inline-block;
+  padding: 1em 3em;
+  color: white;
+  background-color: black;
+}
+.button:hover, .button:focus {
+  color: black;
+  background-color: black;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  color: red;
+  background-color: blue;
+}
+
+body {
+  width: 2200px;
+}
+
+body {
+  background-color: #ededed;
+  color: #343434;
+}
+
+body {
+  font-size: 1rem;
+}
+@media screen and (min-width: 55em) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+body {
+  font-style: 1.125rem;
+}
+
+.example {
+  color: #1b6db5;
+}
+
+.example {
+  color: darkblue;
+}
+
 /*# sourceMappingURL=style.css.map */
