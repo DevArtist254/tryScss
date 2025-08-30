@@ -441,4 +441,50 @@ body {
   color: darkblue;
 }
 
+.fs-400 {
+  font-size: 1.125rem;
+}
+
+.fs-500 {
+  font-size: 1.25rem;
+}
+
+.fs-600 {
+  font-size: 1.525rem;
+}
+
+.fs-700 {
+  font-size: 2.25rem;
+}
+
+.bg-primary-light {
+  background-color: lightblue;
+  color: black;
+}
+
+.bg-primary-normal {
+  background-color: blue;
+  color: black;
+}
+
+.bg-primary-dark {
+  background-color: darkblue;
+  color: white;
+}
+
+.bg-secondary-light {
+  background-color: pink;
+  color: black;
+}
+
+.bg-secondary-normal {
+  background-color: red;
+  color: black;
+}
+
+.bg-secondary-dark {
+  background-color: firebrick;
+  color: white;
+}
+
 /*# sourceMappingURL=style.css.map */

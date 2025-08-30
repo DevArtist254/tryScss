@@ -696,3 +696,40 @@ $crs: (
 .example {
     color: map.get($crs, primary, dark);
 }
+
+$fs: (
+    400: 1.125rem,
+    500: 1.25rem,
+    600: 1.525rem,
+    700: 2.25rem
+);
+
+@each $name, $size in $fs {
+    .fs-#{$name} {
+        font-size: $size;
+    }
+}
+
+$cs: (
+    primary: (
+        light: lightblue,
+        normal: blue,
+        dark: darkblue
+    ),
+    secondary: (
+        light: pink,
+        normal: red,
+        dark: firebrick
+    )
+);
+
+@each $color, $shades in $cs {
+    @each $shade, $value in $shades {
+        // @debug $shade;
+        // @debug $value;
+        .bg-#{$color}-#{$shade} {
+            background-color: $value;
+            color: if(color.lightness($value) < 50, white, black);
+        }
+    }
+}
